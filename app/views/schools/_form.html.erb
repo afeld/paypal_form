@@ -1,0 +1,28 @@
+<%= form.error_messages %>
+
+<p>
+  <%= form.label :name %><br />
+  <%= form.text_field :name %>
+</p>
+<p>
+  <%= form.label :city %><br />
+  <%= form.text_field :city %>
+</p>
+<p>
+  <%= form.label :state %><br />
+  <%= form.text_field :state %>
+</p>
+<p>
+  <%= form.label :program %><br />
+  <%= radio_button :school, :program, "peewee" %>Peewee Sports and Fitness<br />
+  <%= radio_button :school, :program, "afterschool" %>Afterschool Kids Sports and Fitness Program
+</p>
+
+<% for price_option in PriceOption.find(:all, :order => :value) %>
+<div>
+  <%= check_box_tag "school[price_option_ids][]", price_option.id, @school.price_options.include?(price_option) %>
+  <%= price_option.title %> - $<%= price_option.value %>
+</div>
+<% end %><br />
+
+<%= form.submit "Submit" %>

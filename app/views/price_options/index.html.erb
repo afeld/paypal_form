@@ -1,0 +1,23 @@
+<a href="/admin">Return to Admin Page</a>
+<h1>Listing price_options</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Value</th>
+  </tr>
+
+<% @price_options.each do |price_option| %>
+  <tr>
+    <td><%=h price_option.title %></td>
+    <td><%=h price_option.value %></td>
+    <td><%= link_to 'Show', price_option %></td>
+    <td><%= link_to 'Edit', edit_price_option_path(price_option) %></td>
+    <td><%= link_to 'Destroy', price_option, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New price_option', new_price_option_path %>

@@ -1,0 +1,31 @@
+<p>
+  <b>Name:</b>
+  <%=h @school.name %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%=h @school.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%=h @school.state %>
+</p>
+
+<p>
+  <b>Program:</b>
+  <%=h @school.program %>
+</p>
+
+<p>
+  <b>Price Options:</b>
+  <ul>
+  <% for price_option in @school.price_options %>
+    <li><%= price_option.full_title %></li>
+  <% end %>
+  </ul>
+</p>
+
+<%= link_to 'Edit', edit_school_path(@school) %> |
+<%= link_to 'Back', schools_path %>

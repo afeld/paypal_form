@@ -1,0 +1,7 @@
+<h1>Create School</h1>
+
+<% form_for @school, :url => {:action => :create} do |f|  %>
+  <%= render :partial => f %>
+<% end %>
+<br />
+<%= link_to 'Cancel', schools_path %>
